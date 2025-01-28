@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valentine's Question</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ffe6eb 0%, #ffb6c1 100%);
+            font-family: 'Quicksand', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            opacity: 0.2;
+            z-index: 1;     
+            color: #ff6b95;
+        }
+
+        .question {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 42px;
+            color: #ff4777;
+            margin-bottom: 30px;
+            line-height: 1.4;
+            text-shadow: 2px 2px 4px rgba(255, 71, 119, 0.2);
+            text-align: center;
+        }
+
+        .cat-gif {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .cat-gif img {
+            width: 250px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(255, 71, 119, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .cat-gif img:hover {
+            transform: scale(1.05);
+        }
+
+        .pleading-text {
+            font-size: 26px;
+            color: #ff6b95;
+            margin: 25px 0;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .buttons button {
+            padding: 15px 40px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-family: 'Quicksand', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        #yesBtn {
+            background: linear-gradient(45deg, #ff4777, #ff6b95);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 71, 119, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        #yesBtn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 71, 119, 0.4);
+            background: linear-gradient(45deg, #ff6b95, #ff4777);
+        }
+
+        #noBtn {
+            background: rgba(255, 255, 255, 0.8);
+            color: #666;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        #noBtn:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .crying-cat {
+            position: fixed;
+            width: 200px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .main-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .image-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .side-image {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+        }
+
+        .side-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(255, 71, 119, 0.2);
+        }
+
+        /* Updated position classes for the images */
+        .left { left: 20px; }
+        .center-left { left: 190px; }
+        .center-right { right: 190px; }
+        .right { right: 20px; }
+        
+        .top { top: 20px; }
+        .middle-top { top: 28%; }
+        .middle { top: 50%; transform: translateY(-50%); }
+        .middle-bottom { bottom: 28%; }
+        .bottom { bottom: 20px; }
+    </style>
+
+
+</head>
+<body>
+    <div class="main-content" style="margin: 0 200px;">
+        <div class="question">
+            <?php echo "Will you be my Valentine?"; ?>
+        </div>
+        <div class="pleading-text">
+            iksiii my labbbbbbb
+        </div>
+        <div class="cat-gif">
+            <img src="https://media1.tenor.com/m/qFmoHEJt6p8AAAAd/don%E2%80%99t-make-me-beg.gif" alt="Pleading Cat">
+        </div>
+        <div class="pleading-text">
+            hehehehehehheheheheheheheheheheh
+        </div>
+        <div class="buttons">
+            <button id="yesBtn" onclick="accepted()">Yes</button>
+            <button id="noBtn" onclick="noButtonClick()">No</button>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <!-- Left side images -->
+        <div class="side-image left top"><img src="iksi/1.jpg" alt="Pleading Cat"></div>
+        <div class="side-image left middle-top"><img src="iksi/2.jpg" alt="Pleading Cat"></div>
+        <div class="side-image left middle"><img src="iksi/3.jpg" alt="Pleading Cat"></div>
+        <div class="side-image left middle-bottom"><img src="iksi/4.jpg" alt="Pleading Cat"></div>
+        <div class="side-image left bottom"><img src="iksi/5.jpg" alt="Pleading Cat"></div>
+        
+       
+        <!-- Right side images -->
+        <div class="side-image right top"><img src="iksi/12.jpg" alt="Pleading Cat"></div>
+        <div class="side-image right middle-top"><img src="iksi/13.jpg" alt="Pleading Cat"></div>
+        <div class="side-image right middle"><img src="iksi/14.jpg" alt="Pleading Cat"></div>
+        <div class="side-image right middle-bottom"><img src="iksi/15.jpg" alt="Pleading Cat"></div>
+        <div class="side-image right bottom"><img src="iksi/16.jpg" alt="Pleading Cat"></div>
+    </div>
+
+    <script>
+        let noButtonClickCount = 0;
+        let currentCryingCat = null;
+
+        function createFloatingHearts() {
+            for(let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.animation = `float ${Math.random() * 6 + 4}s ease-in-out infinite`;
+                document.body.appendChild(heart);
+            }
+        }
+
+        function noButtonClick() {
+            noButtonClickCount++;
+            
+            // Make No button smaller
+            const noBtn = document.getElementById('noBtn');
+            const currentPadding = parseInt(window.getComputedStyle(noBtn).padding);
+            const currentFontSize = parseInt(window.getComputedStyle(noBtn).fontSize);
+            noBtn.style.padding = `${currentPadding * 0.9}px`;
+            noBtn.style.fontSize = `${currentFontSize * 0.9}px`;
+
+            // Make Yes button larger
+            const yesBtn = document.getElementById('yesBtn');
+            const yesPadding = parseInt(window.getComputedStyle(yesBtn).padding);
+            const yesFontSize = parseInt(window.getComputedStyle(yesBtn).fontSize);
+            yesBtn.style.padding = `${yesPadding * 1.1}px`;
+            yesBtn.style.fontSize = `${yesFontSize * 1.1}px`;
+
+            // Remove previous crying cat if exists
+            if (currentCryingCat) {
+                currentCryingCat.remove();
+            }
+
+            // Add new crying cat at random position
+            const cryingCat = document.createElement('img');
+            cryingCat.src = 'https://media.tenor.com/RVQyy9lA_O4AAAAi/sad-crying.gif';
+            cryingCat.className = 'crying-cat';
+            cryingCat.style.left = Math.random() * (window.innerWidth - 200) + 'px';
+            cryingCat.style.top = Math.random() * (window.innerHeight - 200) + 'px';
+            document.body.appendChild(cryingCat);
+            currentCryingCat = cryingCat;
+
+            // Remove crying cat after 2 seconds
+            setTimeout(() => {
+                if (cryingCat.parentNode) {
+                    cryingCat.remove();
+                }
+            }, 2000);
+        }
+
+        createFloatingHearts();
+
+        function accepted() {
+            const mainContent = document.querySelector('.main-content');
+            mainContent.innerHTML = `
+                <div class="question" style="font-size: 46px; margin-bottom: 40px;">
+                    hehehehe iloveyouuuuuuuu
+                </div>
+                <div class="question" style="font-size: 46px; margin-bottom: 40px;">
+                    thank youuuuuuuuu
+                </div>
+                <div class="cat-gif">
+            <img src="https://media.tenor.com/h3TPdB5KFd8AAAAi/love-kawaii.gif" alt="Pleading Cat">
+        </div>
+                <div class="pleading-text" style="font-size: 32px;">
+                    mwamwamwamwamwawa
+                </div>
+            `;
+            createHeartShower();
+        }
+
+        function createHeartShower() {
+            const hearts = document.createElement('div');
+            hearts.className = 'hearts';
+            document.body.appendChild(hearts);
+            
+            for(let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.style.position = 'absolute';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '-20px';
+                heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+                heart.style.opacity = Math.random() * 0.5 + 0.5;
+                heart.style.animation = `fall ${Math.random() * 2 + 3}s linear infinite`;
+                heart.innerHTML = '❤️';
+                hearts.appendChild(heart);
+            }
+        }
+
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                @keyframes fall {
+                    0% { 
+                        transform: translateY(-10vh) rotate(0deg);
+                        opacity: 1;
+                    }
+                    100% { 
+                        transform: translateY(100vh) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+                @keyframes float {
+                    0% { transform: translateY(0) rotate(0deg); }
+                    50% { transform: translateY(-10px) rotate(5deg); }
+                    100% { transform: translateY(0) rotate(0deg); }
+                }
+            </style>
+        `);
+    </script>
+</body>
+</html> 
